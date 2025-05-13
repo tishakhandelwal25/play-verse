@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PLAYVERSE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    #starsCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    #loader {
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all ease 0.7s;
+    }
+
+    #loader h1 {
+      font-size: 4vw;
+      color: transparent;
+      background: linear-gradient(to right,#00ffea, #f1f1f1);
+      -webkit-background-clip: text;
+      position: absolute;
+      opacity: 0;
+      animation: load 1s linear;
+    }
+
+    #loader h1:nth-child(1) { animation-delay: 1s; }
+    #loader h1:nth-child(2) { animation-delay: 2s; }
+    #loader h1:nth-child(3) { animation-delay: 3s; }
+
+    @keyframes load {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    .glow {
+      font-size: 3rem;
+      color: #00ffea;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      
+    }
+
+    .game-card, .title-card {
+      background: #1e1e2f;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffea80;
+      transition: 0.3s ease;
+      width: 220px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00ffea;
+    }
+
+    .game-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #ffcb05;
+    }
+
+    .game-card button {
+      padding: 0.5rem 1.2rem;
+      background-color: #00ffea;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .title-card {
+      background-color: transparent;
+      box-shadow: none;
+      font-size: 1.8rem;
+      color: #ffcb05;
+      text-shadow: 0 0 10px #ffcb05;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #111122;
+      color: #ccc;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader">
+    <h1 class="glow">PLAY</h1>
+    <h1 class="glow">SCORE</h1>
+    <h1 class="glow">WIN</h1>
+  </div>
+
+  <canvas id="starsCanvas"></canvas>
+
+  <header>
+    <h1 class="glow">🎮 PLAYVERSE</h1>
+    <p>Play. Score. Win. Your next adventure starts here!</p>
+  </header>
+
+  <div class="grid-container">
+    <div class="game-card"><a href="hangman/index.html"><h3>HANGMAN</h3><button>Play</button></a></div>
+    <div class="game-card"><a href="game2048/index2048.html"><h3>2048</h3><button>Play</button></a></div>
+    <div class="game-card"><a href="pingpong/index.html"><h3>PING PONG</h3><button>Play</button></a></div>
+
+    <div class="game-card"><a href="snake game/index.html"><h3>FEED THE FOOD</h3><button>Play</button></a></div>
+    <div class="title-card">🎯 Featured Games</div>
+    <div class="game-card"><a href="train your brain/index.html"><h3>TRAIN YOUR BRAIN</h3><button>Play</button></a></div>
+
+    <div class="game-card"><a href="bricksmashers/index.html"><h3>Brick Smasher</h3><button>Play</button></a></div>
+    <div class="game-card"><a href="tic tac toe/index.html"><h3>Tic Tac Toe</h3><button>Play</button></a></div>
+    <div class="game-card"><a href="number puzzle/index.html"><h3>NUMBER PUZZLE</h3><button>Play</button></a></div>
+  </div>
+
+  <footer>
+    <p>© 2025 PLAYVERSE | Play. Score. Win.</p>
+  </footer>
+
+  <script>
+    // Falling stars canvas
+    const canvas = document.getElementById("starsCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      s: Math.random() * 3 + 1
+    }));
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fff";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y += star.s;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    drawStars();
+
+    // Loader
+    setTimeout(() => {
+      document.getElementById("loader").style.top = "-100%";
+    }, 4200);
+  </script>
+
+</body>
+</html>

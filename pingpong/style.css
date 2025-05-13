@@ -1,0 +1,80 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+  }
+  
+  #gameBoard {
+    width: 800px;
+    height: 400px;
+    background-color: rgb(7, 105, 7);
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    
+  }
+  
+  .paddle1 {
+    width: 18px;
+    height: 120px;
+    background-color: rgb(226, 20, 20);
+    position: absolute;
+    top: 160px;
+    border: 2px solid rgb(255, 255, 255);
+  }
+  
+  #paddle1 {
+    left: 0;
+  }
+  .paddle2 {
+    width: 18px;
+    height: 120px;
+    background-color: rgb(31, 31, 224);
+    position: absolute;
+    top: 160px;
+    border: 2px solid rgb(253, 253, 253);
+  }
+
+  
+  #paddle2 {
+    right: 0;
+  }
+  
+  #ball {
+    width: 30px;
+    height: 30px;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 200px;
+    left: 345px;
+    border-radius: 50%;
+    border: 4px solid black;
+  }
+  
+  .scoreboard {
+    font-size: 35px;
+    color:#f5eff6;
+    margin-top: 100px;
+  }
+  
+  .controls {
+    margin: 10px;
+  }
+  .startBtn{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid white;
+    font-size: 27px;
+    background-color:cadetblue;
+  }
+  .resetBtn{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid rgb(252, 252, 252);
+    font-size: 27px;
+    background-color: cadetblue;
+  }
+  
