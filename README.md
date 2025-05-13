@@ -1,4 +1,5 @@
 # play-verse
+🎮 Playverse
 Playverse is a browser-based gaming platform created to provide simple, fun, and interactive games for users of all ages. Built using HTML, CSS, and JavaScript, this project showcases web development skills and creativity through a fully functional mini-game website.
 
 🌟 Features
